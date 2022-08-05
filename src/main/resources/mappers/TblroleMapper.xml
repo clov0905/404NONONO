@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cykj.mapper.TblroleMapper">
+    <select id="selRoleList" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole where roleId != 4
+    </select>
+
+    <delete id="delRole">
+        delete from tblrole where roleId = #{roleId}
+    </delete>
+
+
+    <insert id="addRole">
+        insert into tblrole(roleName,description) values (#{name},#{description});
+    </insert>
+
+    <select id="findRoleId" resultType="com.cykj.bean.Tblrole">
+        select roleId from tblrole where roleName = #{name}
+    </select>
+
+
+    <select id="findRoleList" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole where roleId = #{roleId}
+    </select>
+
+    <update id="updRole">
+        update tblrole set roleName = #{roleName},description = #{description} where roleId = #{roleId}
+    </update>
+
+</mapper>

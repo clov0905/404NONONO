@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cykj.mapper.TblpowerMapper">
+    <select id="findPowerList" resultType="com.cykj.bean.Tblpower">
+        select * from tblpower where powerId in (select powerId from tblrolepower where roleId = #{roleid})
+    </select>
+
+    <delete id="delPowerByRoleId">
+        delete from tblrolepower where roleId = #{roleid}
+    </delete>
+
+    <select id="findStaffPowerId" resultType="java.lang.Integer">
+        select powerId from tblrolepower where roleId = #{roleid}
+    </select>
+
+    <select id="findStaffPower" resultType="com.cykj.bean.Tblpower">
+        select * from tblpower
+        <where>
+            <if test="powerIdList !=null and powerIdList.size>0">
+                powerId in
+                <foreach collection="powerIdList" open="(" close=")" item="powerId" separator=",">
+                    #{powerId}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="findAllPower" resultType="com.cykj.bean.Tblpower">
+        select * from tblpower
+    </select>
+
+    <insert id="addPower" parameterType="com.cykj.bean.Tblrolepower">
+        insert into tblrolepower(roleId,powerId) values (#{roleId},#{powerId})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cykj.mapper.TbluserMapper">
+    <select id="login" resultType="com.cykj.bean.UserBean">
+        select * from tbluser where uAcc=#{uAcc} and uPwd=#{uPwd}
+    </select>
+
+    <insert id="frontRegist" parameterType="com.cykj.bean.UserBean">
+        insert into tbluser(uAcc,uPwd,uName,phone,idNumber,address,headImg,state) values
+        (#{uAcc},#{uPwd},#{uName},#{phone},#{idNumber},#{address},#{headImg},1)
+    </insert>
+
+    <select id="findUser" resultType="java.lang.String">
+        select userId from tbluser where uAcc=#{uAcc}
+    </select>
+
+    <select id="findAllUser" resultType="com.cykj.bean.UserBean">
+        select * from tbluser where state = 1
+    </select>
+
+    <select id="countAllUser" resultType="java.lang.Integer">
+        select count(*) from tbluser where state = 1
+    </select>
+
+    <select id="likeUser" resultType="com.cykj.bean.UserBean">
+        select * from tbluser
+        <where>
+            <if test="uAcc != null and uAcc != ''">
+                and uAcc like concat('%',#{uAcc},'%')
+            </if>
+            <if test="uName != null and uName != ''">
+                and uName like concat('%',#{uName},'%')
+            </if>
+            and state = 1
+        </where>
+    </select>
+
+    <update id="delUser">
+        update tbluser set state = 0 where userId = #{userId}
+    </update>
+
+    <insert id="addUser" parameterType="com.cykj.bean.UserBean">
+        insert into tbluser(uAcc,uPwd,uName,idNumber,phone,address,state) values
+        (#{uAcc},#{uPwd},#{uName},#{idNumber},#{phone},#{address},1)
+    </insert>
+
+    <update id="updUser">
+        update tbluser set uPwd = #{uPwd},uName=#{uName},phone=#{phone},address=#{address} where userId = #{userId}
+    </update>
+
+    <select id="byIdFindUser" resultType="com.cykj.bean.UserBean">
+        select * from tbluser where userId=#{userId}
+    </select>
+
+    <select id="findUserRole" resultType="com.cykj.bean.UserBean">
+        select * from tbluser where roleId = #{roleId}
+    </select>
+
+
+</mapper>
