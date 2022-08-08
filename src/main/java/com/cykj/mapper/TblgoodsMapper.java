@@ -12,4 +12,6 @@ public interface TblgoodsMapper {
     List<Tblgoods> findGoodsList();
     //修改商品
     boolean updGoods(Tblgoods tblgoods);
+    //新增商品
+    int insertGoods(Tblgoods tblgoods);
 }

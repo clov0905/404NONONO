@@ -10,4 +10,6 @@ public interface TblgoodsService {
     Map<String, Object> findGoodsList();
     //修改商品
     boolean updGoods( Tblgoods goods);
+    //新增商品
+    int insertGoods(Tblgoods tblgoods);
 }
