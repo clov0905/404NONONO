@@ -45,4 +45,10 @@ public class GoodsController {
         return JSONArray.toJSONString(map);
     }
 
+    //新增商品
+    @RequestMapping(value = "/insertGoods",produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public int insertGoods(Tblgoods tblgoods){
+        return tblgoodsService.insertGoods(tblgoods);
+    }
 }

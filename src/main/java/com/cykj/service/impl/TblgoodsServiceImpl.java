@@ -45,4 +45,10 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         return num;
     }
 
+    @Override
+    public int insertGoods(Tblgoods tblgoods) {
+
+        return  tblgoodsMapper.insertGoods(tblgoods);
+    }
+    //商品新增
 }

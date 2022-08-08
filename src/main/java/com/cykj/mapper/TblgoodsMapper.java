@@ -19,4 +19,6 @@ public interface TblgoodsMapper {
     //商品名查询商品列表总量
     int findGoodsListNum(@Param("goodsName")String goodsName);
 
+    //新增商品
+    int insertGoods(Tblgoods tblgoods);
 }
