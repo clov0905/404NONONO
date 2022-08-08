@@ -30,4 +30,11 @@ public class GoodsController {
     public boolean updGoods(Tblgoods tblgoods){
         return tblgoodsService.updGoods(tblgoods);
     }
+    //删除商品
+    @RequestMapping("/delGoods")
+    @ResponseBody
+    public int delGoods(int index){
+        int flag = tblgoodsService.delGoods(index);
+        return flag;
+    }
 }

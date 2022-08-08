@@ -10,6 +10,8 @@ import java.util.List;
 public interface TblgoodsMapper {
     //查询全部商品
     List<Tblgoods> findGoodsList();
+    //删除商品
+    int delGoods(int index);
     //修改商品
     boolean updGoods(Tblgoods tblgoods);
 }

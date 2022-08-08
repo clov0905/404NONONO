@@ -24,6 +24,12 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         map.put("goodsList", tblgoodsList);
         return map;
     }
+
+    @Override
+    public int delGoods(int index) {
+        int flag = tblgoodsMapper.delGoods(index);
+        return flag;
+    }
     //商品的修改
     @Override
     public boolean updGoods(Tblgoods goods) {
