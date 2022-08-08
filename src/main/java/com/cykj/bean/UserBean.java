@@ -1,5 +1,6 @@
 package com.cykj.bean;
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
+@ApiModel("用户实体类")
 public class UserBean {
     private int userId;
     private String uAcc;
