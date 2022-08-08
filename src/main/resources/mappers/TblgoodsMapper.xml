@@ -16,6 +16,10 @@
         delete * from tblgoods where id = #{index}
     </delete>
 
+    <insert id="insertGoods" parameterType="com.cykj.bean.Tblgoods">
+            insert into tblgoods(goodsName,goodsImg,goodsPrice,goodsDesc)
+            values (#{goodsName},#{goodsImg},#{goodsPrice},#{goodsDesc})
+    </insert>
 
 
 </mapper>

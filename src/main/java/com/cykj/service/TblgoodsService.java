@@ -12,4 +12,6 @@ public interface TblgoodsService {
     int delGoods(int index);
     //修改商品
     boolean updGoods( Tblgoods goods);
+    //新增商品
+    int insertGoods(Tblgoods tblgoods);
 }
