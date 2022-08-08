@@ -30,4 +30,19 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         return tblgoodsMapper.updGoods(goods);
     }
 
+    //
+    @Override
+    public Map<String,Object> findGoodsListByName(String goodsName, int startPage, int singlePageNum) {
+        List<Tblgoods> list = tblgoodsMapper.findGoodsListByName(goodsName,startPage,singlePageNum);
+        Map<String,Object>map=new HashMap<>();
+        map.put("list",list);
+        return map;
+    }
+
+    @Override
+    public int findGoodsListNum(String goodsName) {
+        int num=tblgoodsMapper.findGoodsListNum(goodsName);
+        return num;
+    }
+
 }

@@ -12,7 +12,20 @@
         UPDATE tblgoods SET goodsName=#{goodsName},goodsImg=#{goodsImg},goodsPrice=#{goodsPrice},goodsDesc=#{goodsDesc}
         WHERE id=#{id}
     </update>
-
-
+    <!-- 商品名模糊查询商品列表-->
+    <select id="findGoodsListByName" resultType="com.cykj.bean.Tblgoods">
+        Select * From Tblgoods
+        <if test="goodsName !=null and goodsName !=''">
+            WHERE goodsName like concat('%',#{goodsName},'%')
+        </if>
+        LIMIT #{startPage},#{singlePageNum}
+    </select>
+    <!-- 商品名查询商品列表总量-->
+    <select id="findGoodsListNum" resultType="java.lang.Integer">
+        Select COUNT(*) From Tblgoods
+        <if test="goodsName !=null and goodsName !=''">
+            WHERE goodsName like concat('%',#{goodsName},'%')
+        </if>
+    </select>
 
 </mapper>

@@ -12,4 +12,11 @@ public interface TblgoodsMapper {
     List<Tblgoods> findGoodsList();
     //修改商品
     boolean updGoods(Tblgoods tblgoods);
+    //商品名模糊查询商品列表
+    List<Tblgoods>findGoodsListByName(@Param("goodsName")String goodsName,
+                                   @Param("startPage")int startPage,
+                                   @Param("singlePageNum")int singlePageNum);
+    //商品名查询商品列表总量
+    int findGoodsListNum(@Param("goodsName")String goodsName);
+
 }
