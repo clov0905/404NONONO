@@ -1,6 +1,7 @@
 package com.cykj.web;
 
 import com.alibaba.fastjson.JSONArray;
+import com.cykj.bean.Tblgoods;
 import com.cykj.service.TblgoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,5 +22,12 @@ public class GoodsController {
     public String selGoodsList() {
         Map<String, Object> map = tblgoodsService.findGoodsList();
         return JSONArray.toJSONString(map);
+    }
+
+    //修改货物数据
+    @RequestMapping(value = "/updGoods",produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public boolean updGoods(Tblgoods tblgoods){
+        return tblgoodsService.updGoods(tblgoods);
     }
 }

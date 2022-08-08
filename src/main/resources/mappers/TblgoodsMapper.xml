@@ -7,7 +7,11 @@
     <select id="findGoodsList" resultType="com.cykj.bean.Tblgoods">
         select * from tblgoods
     </select>
-
+<!--    修改商品信息-->
+    <update id="updGoods" parameterType="com.cykj.bean.Tblgoods">
+        UPDATE tblgoods SET goodsName=#{goodsName},goodsImg=#{goodsImg},goodsPrice=#{goodsPrice},goodsDesc=#{goodsDesc}
+        WHERE id=#{id}
+    </update>
 
 
 

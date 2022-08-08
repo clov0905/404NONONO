@@ -24,4 +24,10 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         map.put("goodsList", tblgoodsList);
         return map;
     }
+    //商品的修改
+    @Override
+    public boolean updGoods(Tblgoods goods) {
+        return tblgoodsMapper.updGoods(goods);
+    }
+
 }
