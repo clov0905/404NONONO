@@ -5,6 +5,7 @@ import com.cykj.bean.Tblpower;
 import com.cykj.bean.UserBean;
 import com.cykj.service.TblpowerService;
 import com.cykj.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
+@Api(value = "接口说明",tags = "接口说明")
 public class UserController {
     //修改测试--------谭永波
     @Autowired
