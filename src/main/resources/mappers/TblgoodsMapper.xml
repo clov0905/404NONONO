@@ -12,8 +12,8 @@
         UPDATE tblgoods SET goodsName=#{goodsName},goodsImg=#{goodsImg},goodsPrice=#{goodsPrice},goodsDesc=#{goodsDesc}
         WHERE id=#{id}
     </update>
-    <delete id="delGoods">
-        delete * from tblgoods where id = #{index}
+    <delete id="delGoods" >
+        delete  from tblgoods where id = #{index}
     </delete>
 
     <!-- 商品名模糊查询商品列表-->
